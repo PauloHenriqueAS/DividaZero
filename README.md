@@ -12,9 +12,10 @@ Confissões de dívida por devedores e regularização
 
 <div align="center">
     <div style="display: inline_block"><br>
-        <img align="center" alt="Python" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
-        <img align="center" alt="FastAPI" height="30" width="40"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg">
-        <img align="center" alt="PostgreSQL" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg">
+        <img align="center" alt="HTML" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+        <img align="center" alt="CSS3" height="30" width="40"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
+        <img align="center" alt="Javascript" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+        <img align="center" alt="Bootstrap" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg">
     </div>
 </div>
 
@@ -35,7 +36,7 @@ O GIT é uma ferramenta que te ajuda a controlar melhor as versões do seu códi
 
 ### Como eu faço para utilizar o GIT nesse projeto (aqui começa a entender um pouco de GITHUB)
 
-- Primeiramente acesse o site do GITHUB (é necessário criar uma conta), após isso entre no link: https://github.com/PauloHenriqueAS/DividaZero-API
+- Primeiramente acesse o site do GITHUB (é necessário criar uma conta), após isso entre no link: https://github.com/PauloHenriqueAS/DividaZero
 
 - Nessa página você irá ver um monte de abas:
     - Code: é onde está o que queremos, os arquivos do nosso site, nosso código.
@@ -46,7 +47,7 @@ O GIT é uma ferramenta que te ajuda a controlar melhor as versões do seu códi
     - Na aba code, você vai ver um botão verdinho mais para o lado direito da página, nele está escrito **`Code`**, clique nele e copie o link HTTPS que foi dado;
     - Com o GIT instalado, abra o terminal (linux) ou CMD (windows) e digite o seguinte comando:
         ```
-        git clone https://github.com/PauloHenriqueAS/DividaZero-API.git
+        git clone https://github.com/PauloHenriqueAS/DividaZero.git
         ```
         Pronto você possui todas o conteúdo atual do site em sua máquina
     - Pesquise sobre branches e gitflow - após isso volte aqui;
