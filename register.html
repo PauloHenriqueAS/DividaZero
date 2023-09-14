@@ -44,7 +44,7 @@
             <form id="formLogin">
                 <div class="mb-3">
                     <div class="row">
-                        <div class="col-md-6"><i class="icon ion-person" style="padding-right: 7px;"></i><label class="form-label" for="userName">Nome Completo</label><input class="form-control" type="text" id="userName"></div>
+                        <div class="col-md-6"><i class="icon ion-person" style="padding-right: 7px;"></i><label class="form-label" for="userFullname">Nome Completo</label><input class="form-control" type="text" id="userFullname"></div>
                         <div class="col-md-6"><i class="icon ion-email" style="padding-right: 7px;"></i><label class="form-label" for="userEmail">Email</label><input class="form-control" type="text" id="userEmail"></div>
                     </div>
                 </div>
@@ -57,21 +57,21 @@
                 <div>
                     <div class="row" style="margin-top: 10px;">
                         <div class="col-md-6"><i class="icon ion-map" style="padding-right: 7px;"></i><label class="form-label" for="userCep">CEP</label><input class="form-control" type="text" id="userCep" onkeyup="searchAdress()"></div>
-                        <div class="col-md-6"><i class="icon ion-home" style="padding-right: 7px;font-size: 15px;"></i><label class="form-label" for="streetName">Logradouro</label><input class="form-control" type="text" id="streetName"></div>
+                        <div class="col-md-6"><i class="icon ion-home" style="padding-right: 7px;font-size: 15px;"></i><label class="form-label" for="userStreetName">Logradouro</label><input class="form-control" type="text" id="userStreetName"></div>
                     </div>
                 </div>
                 <div>
                     <div class="row" style="margin-top: 10px;">
-                        <div class="col-md-6"><i class="icon ion-home" style="padding-right: 7px;"></i><label class="form-label" for="userNeighborhood">Bairro</label><input class="form-control" type="text" id="neighborhood"></div>
-                        <div class="col-md-6"><i class="icon ion-home" style="padding-right: 7px;"></i><label class="form-label" for="userComplement">Complemento</label><input class="form-control" type="text" id="complement"></div>
+                        <div class="col-md-6"><i class="icon ion-home" style="padding-right: 7px;"></i><label class="form-label" for="userNeighborhood">Bairro</label><input class="form-control" type="text" id="userNeighborhood"></div>
+                        <div class="col-md-6"><i class="icon ion-home" style="padding-right: 7px;"></i><label class="form-label" for="userComplement">Complemento</label><input class="form-control" type="text" id="userComplement"></div>
                     </div>
                 </div>
                 <div class="row" style="margin-top: 10px;">
-                    <div class="col-md-6"><i class="icon ion-home" style="padding-right: 7px;"></i><label class="form-label" for="houseNumber">Número</label><input class="form-control" type="text" id="houseNumber"></div>
+                    <div class="col-md-6"><i class="icon ion-home" style="padding-right: 7px;"></i><label class="form-label" for="userHouseNumber">Número</label><input class="form-control" type="text" id="userHouseNumber"></div>
                     <div class="col-md-3"><i class="icon ion-key" style="padding-right: 7px;"></i><label class="form-label" for="userPassword">Senha</label><input class="form-control" type="password" id="userPassword"></div>
                     <div class="col-md-3"><i class="icon ion-key" style="padding-right: 7px;"></i><label class="form-label" for="userPasswordConfirmation">Confirmar Senha</label><input class="form-control" type="password" id="userPasswordConfirmation"></div>
                 </div>
-                <div class="mb-3"><button class="btn d-block w-100" id="btnLogin" type="submit" style="background: #00afac;border-style: none;margin-top: 20px;width: 500px;color: rgb(255,255,255);">Finalizar Cadastro</button></div>
+                <div class="mb-3"><button class="btn d-block w-100" id="finishUserRegistrationButton" type="button" style="background: #00afac;border-style: none;margin-top: 20px;width: 500px;color: rgb(255,255,255);" onclick="finishUserRegistration()">Finalizar Cadastro</button></div>
             </form>
         </div>
     </section>
@@ -135,6 +135,7 @@
     <script src="service-worker.js"></script>
     <script src="./src/userRegistration.js"></script>
     <script src="./src/Extensions/constants.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
