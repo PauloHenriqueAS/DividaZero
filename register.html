@@ -56,20 +56,26 @@
                 </div>
                 <div>
                     <div class="row" style="margin-top: 10px;">
-                        <div class="col-md-6"><i class="icon ion-map" style="padding-right: 7px;"></i><label class="form-label" for="userCep">CEP</label><input class="form-control" type="text" id="userCep" onkeyup="searchAdress()"></div>
-                        <div class="col-md-6"><i class="icon ion-home" style="padding-right: 7px;font-size: 15px;"></i><label class="form-label" for="userStreetName">Logradouro</label><input class="form-control" type="text" id="userStreetName"></div>
+                        <div class="col-md-3"><i class="icon ion-map" style="padding-right: 7px;"></i><label class="form-label" for="userCep">CEP</label><input class="form-control" type="text" id="userCep" onkeyup="searchAdress()"></div>
+                        <div class="col-md-7"><i class="icon ion-home" style="padding-right: 7px;font-size: 15px;"></i><label class="form-label" for="userStreetName">Logradouro</label><input class="form-control" type="text" id="userStreetName"></div>
+                        <div class="col-md-2"><i class="icon ion-home" style="padding-right: 7px;"></i><label class="form-label" for="userHouseNumber">Número</label><input class="form-control" type="text" id="userHouseNumber"></div>
                     </div>
                 </div>
                 <div>
                     <div class="row" style="margin-top: 10px;">
-                        <div class="col-md-6"><i class="icon ion-home" style="padding-right: 7px;"></i><label class="form-label" for="userNeighborhood">Bairro</label><input class="form-control" type="text" id="userNeighborhood"></div>
-                        <div class="col-md-6"><i class="icon ion-home" style="padding-right: 7px;"></i><label class="form-label" for="userComplement">Complemento</label><input class="form-control" type="text" id="userComplement"></div>
+                        <div class="col-md-3"><i class="icon ion-home" style="padding-right: 7px;"></i><label class="form-label" for="userNeighborhood">Bairro</label><input class="form-control" type="text" id="userNeighborhood"></div>
+                        <div class="col-md-3"><i class="icon ion-home" style="padding-right: 7px;"></i><label class="form-label" for="userComplement">Complemento</label><input class="form-control" type="text" id="userComplement"></div>
+                        <div class="col-md-4"><i class="icon ion-home" style="padding-right: 7px;"></i><label class="form-label" for="userCity">Cidade</label><input class="form-control" type="text" id="userCity" style="text-align: center;"></div>
+                        <div class="col-md-2"><i class="icon ion-home" style="padding-right: 7px;"></i><label class="form-label" for="userState">Estado</label><input class="form-control" type="text" id="userState" style="text-align: center;"></div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;">                        
+                        
                     </div>
                 </div>
-                <div class="row" style="margin-top: 10px;">
-                    <div class="col-md-6"><i class="icon ion-home" style="padding-right: 7px;"></i><label class="form-label" for="userHouseNumber">Número</label><input class="form-control" type="text" id="userHouseNumber"></div>
-                    <div class="col-md-3"><i class="icon ion-key" style="padding-right: 7px;"></i><label class="form-label" for="userPassword">Senha</label><input class="form-control" type="password" id="userPassword"></div>
-                    <div class="col-md-3"><i class="icon ion-key" style="padding-right: 7px;"></i><label class="form-label" for="userPasswordConfirmation">Confirmar Senha</label><input class="form-control" type="password" id="userPasswordConfirmation"></div>
+                <div class="row" style="margin-top: 10px;">     
+                    <div class="col-md-2"></div>               
+                    <div class="col-md-4"><i class="icon ion-key" style="padding-right: 7px;"></i><label class="form-label" for="userPassword">Senha</label><input class="form-control" type="password" id="userPassword" onkeyup="watchPasswordField()"></div>
+                    <div class="col-md-4"><i class="icon ion-key" style="padding-right: 7px;"></i><label class="form-label" for="userPasswordConfirmation">Confirmar Senha</label><input class="form-control" type="password" id="userPasswordConfirmation" onkeyup="watchPasswordField()"></div>
                 </div>
                 <div class="mb-3"><button class="btn d-block w-100" id="finishUserRegistrationButton" type="button" style="background: #00afac;border-style: none;margin-top: 20px;width: 500px;color: rgb(255,255,255);" onclick="finishUserRegistration()">Finalizar Cadastro</button></div>
             </form>

@@ -1,12 +1,9 @@
-// import { URL_API_BASE } from './Extensions/constants.js'
-
 function searchAdress(){
     const cep = $('#userCep').val();
 
     if (cep.length == 8)
         setAddressAutomatically(cep);
 }
-
 
 function getUserRegistrationFields(){
     return {
@@ -16,15 +13,31 @@ function getUserRegistrationFields(){
         'address': {
             'cep' : $('#userCep').val().trim(),
             'streetName' : $('#userStreetName').val().trim(),
+            'houseNumber' : $('#userHouseNumber').val(),
             'neighborhood' : $('#userNeighborhood').val().trim(),
             'complement' : $('#userComplement').val().trim(),
-        },
-        'houseNumber' : $('#userHouseNumber').val(),
+            'city' : $('#userCity').val().trim(),
+            'state' : $('#userState').val().trim(),
+        },        
         'password' : $('#userPassword').val().trim(),
         'passwordConfirmation' : $('#userPasswordConfirmation').val().trim(),        
     }
 }
 
+function watchPasswordField(){
+  const password = $('#userPassword').val().trim();
+  const passwordConfirmation = $('#userPasswordConfirmation').val().trim();
+
+  if(password != passwordConfirmation){
+    $('#userPasswordConfirmation').css('border-color','#f08080');
+    $('#userPassword').css('border-color','#f08080');
+
+    console.log('errado');
+  }else{
+    $('#userPasswordConfirmation').css('border-color','#dee2e6');
+    $('#userPassword').css('border-color','#dee2e6');
+  }
+}
 
 function verifyUserRegistrationFields() {
     return new Promise((resolve, reject) => {
@@ -37,7 +50,9 @@ function verifyUserRegistrationFields() {
         user.address.streetName == '' ||
         user.address.neighborhood == '' ||
         user.address.complement == '' ||
-        user.houseNumber == '' ||
+        user.address.houseNumber == '' ||
+        user.address.city == '' ||
+        user.address.state == '' ||
         user.password == '' ||
         user.passwordConfirmation == '';
   
@@ -72,6 +87,8 @@ function setAddressAutomatically(cep){
             $('#userStreetName').val(result.logradouro);
             $('#userComplement').val(result.complemento);
             $('#userNeighborhood').val(result.bairro);
+            $('#userCity').val(result.localidade);
+            $('#userState').val(result.uf);
         })
         .catch((error) => {
             reject(error);
