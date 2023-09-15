@@ -10,39 +10,41 @@ function searchAdress() {
 
 function getUserRegistrationFields() {
   return {
-    fullName: $("#userFullname").val().trim(),
-    email: $("#userEmail").val().trim(),
-    citizenship: $("#userCitizenship").val().trim(),
-    address: {
-      cep: $("#userCep").val().trim(),
-      streetName: $("#userStreetName").val().trim(),
-      houseNumber: $("#userHouseNumber").val(),
-      neighborhood: $("#userNeighborhood").val().trim(),
-      complement: $("#userComplement").val().trim(),
-      city: $("#userCity").val().trim(),
-      state: $("#userState").val().trim(),
+    user: {
+      full_name: $("#userFullname").val().trim(),
+      email_user: $("#userEmail").val().trim(),
+      citizenship: $("#userCitizenship").val().trim(),
+      password_user: $("#userPassword").val().trim(),
+      passwordConfirmation: $("#userPasswordConfirmation").val().trim(),
     },
-    password: $("#userPassword").val().trim(),
-    passwordConfirmation: $("#userPasswordConfirmation").val().trim(),
+    endereco: {
+      cep: $("#userCep").val().trim(),
+      logradouro: $("#userStreetName").val().trim(),
+      numero: $("#userHouseNumber").val(),
+      bairro: $("#userNeighborhood").val().trim(),
+      complemento: $("#userComplement").val().trim(),
+      cidade: $("#userCity").val().trim(),
+      estado: $("#userState").val().trim(),
+    },
   };
 }
 
 function verifyUserRegistrationFields() {
   return new Promise((resolve, reject) => {
-    const user = getUserRegistrationFields();
+    const data = getUserRegistrationFields();
     const areFieldsIncomplete =
-      user.fullName == "" ||
-      user.email == "" ||
-      user.citizenship == "" ||
-      user.address.cep == "" ||
-      user.address.streetName == "" ||
-      user.address.neighborhood == "" ||
-      user.address.complement == "" ||
-      user.houseNumber == "" ||
-      user.password == "" ||
-      user.passwordConfirmation == "";
+      data.user.full_name == "" ||
+      data.user.email == "" ||
+      data.user.citizenship == "" ||
+      data.endereco.cep == "" ||
+      data.endereco.logradouro == "" ||
+      data.endereco.bairro == "" ||
+      data.endereco.complemento == "" ||
+      data.endereco.numero == "" ||
+      data.user.password_user == "" ||
+      data.user.passwordConfirmation == "";
 
-    if (user && user.password != user.passwordConfirmation) {
+    if (data && data.user.password_user != data.user.passwordConfirmation) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -59,7 +61,9 @@ function verifyUserRegistrationFields() {
         reject("Campos incompletos!");
       });
     } else {
-      resolve(user);
+      const newData = { ...data };
+      delete newData.user.passwordConfirmation;
+      resolve(newData);
     }
   });
 }
@@ -84,9 +88,7 @@ function setAddressAutomatically(cep) {
 function finishUserRegistration() {
   verifyUserRegistrationFields()
     .then(async (result) => {
-      console.log(result);
       if (result) {
-        console.log("Chamar api para cadastro");
         try {
           const requestOptions = {
             method: "POST",
@@ -103,7 +105,19 @@ function finishUserRegistration() {
 
           const resData = await res.json();
 
-          console.log(resData);
+          if (resData && resData.code === 201) {
+            Swal.fire({
+              icon: "success",
+              title: "Sucesso",
+              text: resData.mensagem,
+            });
+          }else{
+            Swal.fire({
+              icon: "error",
+              title: "Ops...",
+              text: resData.mensagem,
+            });
+          }
         } catch (err) {
           console.log(err.message);
         }

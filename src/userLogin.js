@@ -1,14 +1,14 @@
 const getUserLoginFields = () => {
   return {
-    email: $("#userEmailLogin").val().trim(),
-    password: $("#userPasswordLogin").val().trim(),
+    email_user: $("#userEmailLogin").val().trim(),
+    password_user: $("#userPasswordLogin").val().trim(),
   };
 };
 
 const verifyUserLoginFields = () => {
   return new Promise((resolve, reject) => {
     const user = getUserLoginFields();
-    if (user && user.password && user.password.length > 0) {
+    if (user && user.password_user && user.password_user.length > 0) {
       resolve(user);
     }
     reject("Sua senha está incorreta!");
@@ -19,7 +19,6 @@ const handleSubmit = () => {
   verifyUserLoginFields()
     .then(async (result) => {
       if (result) {
-        console.log("Chamar API para login de usuario");
         try {
           const requestOptions = {
             method: "POST",
@@ -31,7 +30,19 @@ const handleSubmit = () => {
           const res = await fetch(`${URL_API_BASE}/user/login`, requestOptions);
 
           const resData = await res.json();
-
+          if(resData && resData.code === 200){
+            Swal.fire({
+              icon: "success",
+              title: "Sucesso",
+              text: resData.mensagem,
+            });
+          }else{
+            Swal.fire({
+              icon: "error",
+              title: "Ops...",
+              text: resData.mensagem,
+            });
+          }
           console.log(resData);
         } catch (err) {
           console.log(err.message);
