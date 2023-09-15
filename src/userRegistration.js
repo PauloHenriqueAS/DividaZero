@@ -1,30 +1,30 @@
-function searchAdress(){
-    const cep = $('#userCep').val()
-                             .trim()
-                             .replaceAll('-','')
-                             .replaceAll('.','');
+function searchAdress() {
+  const cep = $("#userCep")
+    .val()
+    .trim()
+    .replaceAll("-", "")
+    .replaceAll(".", "");
 
-    if (cep.length == 8)
-        setAddressAutomatically(cep);
+  if (cep.length == 8) setAddressAutomatically(cep);
 }
 
-function getUserRegistrationFields(){
-    return {
-        'fullName' : $('#userFullname').val().trim(),
-        'email' : $('#userEmail').val().trim(),
-        'citizenship' : $('#userCitizenship').val().trim(),
-        'address': {
-            'cep' : $('#userCep').val().trim(),
-            'streetName' : $('#userStreetName').val().trim(),
-            'houseNumber' : $('#userHouseNumber').val(),
-            'neighborhood' : $('#userNeighborhood').val().trim(),
-            'complement' : $('#userComplement').val().trim(),
-            'city' : $('#userCity').val().trim(),
-            'state' : $('#userState').val().trim(),
-        },        
-        'password' : $('#userPassword').val().trim(),
-        'passwordConfirmation' : $('#userPasswordConfirmation').val().trim(),        
-    }
+function getUserRegistrationFields() {
+  return {
+    fullName: $("#userFullname").val().trim(),
+    email: $("#userEmail").val().trim(),
+    citizenship: $("#userCitizenship").val().trim(),
+    address: {
+      cep: $("#userCep").val().trim(),
+      streetName: $("#userStreetName").val().trim(),
+      houseNumber: $("#userHouseNumber").val(),
+      neighborhood: $("#userNeighborhood").val().trim(),
+      complement: $("#userComplement").val().trim(),
+      city: $("#userCity").val().trim(),
+      state: $("#userState").val().trim(),
+    },
+    password: $("#userPassword").val().trim(),
+    passwordConfirmation: $("#userPasswordConfirmation").val().trim(),
+  };
 }
 
 function verifyUserRegistrationFields() {
@@ -64,21 +64,21 @@ function verifyUserRegistrationFields() {
   });
 }
 
-function setAddressAutomatically(cep){    
-    const viaCepUrl = `https://viacep.com.br/ws/${cep}/json/`
+function setAddressAutomatically(cep) {
+  const viaCepUrl = `https://viacep.com.br/ws/${cep}/json/`;
 
-    fetch(viaCepUrl)
-        .then((response) => response.json())
-        .then((result) => {
-            $('#userStreetName').val(result.logradouro);
-            $('#userComplement').val(result.complemento);
-            $('#userNeighborhood').val(result.bairro);
-            $('#userCity').val(result.localidade);
-            $('#userState').val(result.uf);
-        })
-        .catch((error) => {
-            reject(error);
-        });
+  fetch(viaCepUrl)
+    .then((response) => response.json())
+    .then((result) => {
+      $("#userStreetName").val(result.logradouro);
+      $("#userComplement").val(result.complemento);
+      $("#userNeighborhood").val(result.bairro);
+      $("#userCity").val(result.localidade);
+      $("#userState").val(result.uf);
+    })
+    .catch((error) => {
+      reject(error);
+    });
 }
 
 function finishUserRegistration() {
@@ -88,10 +88,18 @@ function finishUserRegistration() {
       if (result) {
         console.log("Chamar api para cadastro");
         try {
-          const res = await fetch(`${URL_API_BASE}/user/PostUser`, {
+          const requestOptions = {
             method: "POST",
-            body: result,
-          });
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(result),
+          };
+
+          const res = await fetch(
+            `${URL_API_BASE}/user/PostUser`,
+            requestOptions
+          );
 
           const resData = await res.json();
 

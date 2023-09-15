@@ -21,10 +21,14 @@ const handleSubmit = () => {
       if (result) {
         console.log("Chamar API para login de usuario");
         try {
-          const res = await fetch(`${URL_API_BASE}/user/login`, {
+          const requestOptions = {
             method: "POST",
-            body: result,
-          });
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(result),
+          };
+          const res = await fetch(`${URL_API_BASE}/user/login`, requestOptions);
 
           const resData = await res.json();
 

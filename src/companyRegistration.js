@@ -90,10 +90,18 @@ function finishCompanyRegistration() {
     .then(async (result) => {
       if (result) {
         try {
-          const res = await fetch(`${URL_API_BASE}/lender/PostLender`, {
+          const requestOptions = {
             method: "POST",
-            body: result,
-          });
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(result),
+          };
+          
+          const res = await fetch(
+            `${URL_API_BASE}/lender/PostLender`,
+            requestOptions
+          );
 
           const resData = await res.json();
 
