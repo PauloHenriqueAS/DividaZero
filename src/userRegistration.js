@@ -1,5 +1,8 @@
 function searchAdress(){
-    const cep = $('#userCep').val();
+    const cep = $('#userCep').val()
+                             .trim()
+                             .replaceAll('-','')
+                             .replaceAll('.','');
 
     if (cep.length == 8)
         setAddressAutomatically(cep);
@@ -22,21 +25,6 @@ function getUserRegistrationFields(){
         'password' : $('#userPassword').val().trim(),
         'passwordConfirmation' : $('#userPasswordConfirmation').val().trim(),        
     }
-}
-
-function watchPasswordField(){
-  const password = $('#userPassword').val().trim();
-  const passwordConfirmation = $('#userPasswordConfirmation').val().trim();
-
-  if(password != passwordConfirmation){
-    $('#userPasswordConfirmation').css('border-color','#f08080');
-    $('#userPassword').css('border-color','#f08080');
-
-    console.log('errado');
-  }else{
-    $('#userPasswordConfirmation').css('border-color','#dee2e6');
-    $('#userPassword').css('border-color','#dee2e6');
-  }
 }
 
 function verifyUserRegistrationFields() {
@@ -64,7 +52,7 @@ function verifyUserRegistrationFields() {
         }).then(() => {
           reject('Senhas não coincidem!');
         });
-      }else if (areFieldsIncomplete) {
+      } else if (areFieldsIncomplete) {
         Swal.fire({
           icon: 'warning',
           title: 'Oops...',
