@@ -1,5 +1,3 @@
-import { URL_API_BASE } from "./Extensions/constants.js";
-
 const getUserLoginFields = () => {
   return {
     email: $("#userEmailLogin").val().trim(),
