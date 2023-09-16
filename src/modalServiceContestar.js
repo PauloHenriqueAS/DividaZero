@@ -42,20 +42,20 @@ let htmlModal = `<div class="modal fade" id="modalContestar" tabindex="-1" role=
         <form class="formLogin">
             <div class="mb-3">
                 <div class="row">
-                    <div class="col-md-6"><i class="icon ion-person" style="padding-right: 7px;"></i><label class="form-label" for="userFullname">Nome Completo</label><input class="form-control" type="text" id="userFullname"></div>
-                    <div class="col-md-6"><i class="icon ion-email" style="padding-right: 7px;"></i><label class="form-label" for="userEmail">Email</label><input class="form-control" type="text" id="userEmail"></div>
+                    <div class="col-md-6"><i class="icon ion-person" style="padding-right: 7px;"></i><label class="form-label" for="userFullname">Nome Completo</label><input disabled class="form-control" type="text" id="userFullname"></div>
+                    <div class="col-md-6"><i class="icon ion-email" style="padding-right: 7px;"></i><label class="form-label" for="userEmail">Email</label><input disabled class="form-control" type="text" id="userEmail"></div>
                 </div>
             </div>
             <div>
                 <div class="row">
-                    <div class="col-md-6"><i class="icon ion-person" style="padding-right: 7px;"></i><label class="form-label" for="userFullname">Nome Completo</label><input class="form-control" type="text" id="userFullname"></div>
-                    <div class="col-md-6"><i class="icon ion-email" style="padding-right: 7px;"></i><label class="form-label" for="userEmail">Email</label><input class="form-control" type="text" id="userEmail"></div>
+                    <div class="col-md-6"><i class="icon ion-person" style="padding-right: 7px;"></i><label class="form-label" for="userFullname">Nome Completo</label><input disabled class="form-control" type="text" id="userFullname"></div>
+                    <div class="col-md-6"><i class="icon ion-email" style="padding-right: 7px;"></i><label class="form-label" for="userEmail">Email</label><input disabled class="form-control" type="text" id="userEmail"></div>
                 </div>
             </div>
             <div>
                 <div class="row">
-                    <div class="col-md-6"><i class="icon ion-person" style="padding-right: 7px;"></i><label class="form-label" for="userFullname">Nome Completo</label><input class="form-control" type="text" id="userFullname"></div>
-                    <div class="col-md-6"><i class="icon ion-email" style="padding-right: 7px;"></i><label class="form-label" for="userEmail">Email</label><input class="form-control" type="text" id="userEmail"></div>
+                    <div class="col-md-6"><i class="icon ion-person" style="padding-right: 7px;"></i><label class="form-label" for="userFullname">Nome Completo</label><input disabled class="form-control" type="text" id="userFullname"></div>
+                    <div class="col-md-6"><i class="icon ion-email" style="padding-right: 7px;"></i><label class="form-label" for="userEmail">Email</label><input disabled class="form-control" type="text" id="userEmail"></div>
                 </div>
             </div> 
         </form>
