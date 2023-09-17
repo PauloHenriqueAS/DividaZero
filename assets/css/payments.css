@@ -105,3 +105,8 @@
 #card-form{
     margin-top: 300px;
 }
+
+#cartaoFields{
+  display: flex;
+  justify-content: center;
+}

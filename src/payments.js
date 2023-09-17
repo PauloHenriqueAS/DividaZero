@@ -66,3 +66,10 @@ document
       document.getElementById("codigoBarras").value = `1000000 1000001 1000002`
     }
   });
+
+
+
+function openPaymentTypes()
+{
+  window.location.href = 'pagamento.html';
+}

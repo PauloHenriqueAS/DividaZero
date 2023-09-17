@@ -25,3 +25,7 @@
 .label-file span {
     font-weight: bold;
 }
+
+.contest-labels{
+    justify-content: center;
+}

@@ -51,7 +51,7 @@
             <div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
                 <div>
                     <h5 class="fw-bold" style="color: #1B7E6C;">Verificar Pendências em Aberto</h5>
-                    <p class="mb-4" style="color: #013040;">Descubra agora quais são as pendências financeiras vinculadas ao seu nome. Consulte suas dívidas atuais hoje mesmo.</p><button class="btn btn-primary shadow" type="button">Verificar Pendências</button>
+                    <p class="mb-4" style="color: #013040;">Descubra agora quais são as pendências financeiras vinculadas ao seu nome. Consulte suas dívidas atuais hoje mesmo.</p><button class="btn btn-primary shadow" type="button" onclick="verifyDebts()" >Verificar Pendências</button>
                 </div>
             </div>
         </div>
@@ -60,11 +60,11 @@
             <div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
                 <div>
                     <h5 class="fw-bold" style="color: #1B7E6C;">Visualizar Renegociações em Aberto</h5>
-                    <p class="mb-4">Verifique todas as suas renegociações de dívidas, obtendo informações atualizadas sobre o status de cada uma delas.</p><button class="btn btn-primary shadow" type="button">Verificar Renegociações</button>
+                    <p class="mb-4">Verifique todas as suas renegociações de dívidas, obtendo informações atualizadas sobre o status de cada uma delas.</p><button class="btn btn-primary shadow" type="button" onclick="verifyRenegociations()">Verificar Renegociações</button>
                 </div>
             </div>
         </div>
-    </section>
+    </section>  
     <section style="background: #f7f7f7;">
         <div class="container py-5">
             <div class="mx-auto" style="max-width: 900px;">
@@ -206,6 +206,8 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bold-and-bright.js"></script>
+    <script src="./src/term.js"></script>
+    <script src="./src/debt.js"></script>
 </body>
 
 </html>
