@@ -30,9 +30,10 @@ function getDebtsColumns() {
         {
             'data': '',
             'title': ' ',
-            'className': 'text-center',
-            'render': (data) => {
-                return `<input class="form-check-input" type="checkbox" name="teste" value="1" id="flexCheckDefault">`
+            'className': 'd-none',
+            'render': (data,type, row) => {
+                const contractNumber = row['num_contrato'];
+                return `<input class="form-check-input" type="checkbox" name="teste" value="1" id="debtCheckbox_${contractNumber}" onclick=checkContract(${contractNumber})>`
             }
         },
         {
@@ -107,7 +108,7 @@ function getDebtsByUser(userCpf){
         id_divida: 1,
         id_credor: '123',
         id_devedor: '456',
-        num_contrato: '312731321',
+        num_contrato: '3127313921',
         termo_divida: 'Termo 1',
         data_divida: '2023-09-16',
         montante_valor: 1000.50,
@@ -119,7 +120,7 @@ function getDebtsByUser(userCpf){
         id_divida: 2,
         id_credor: '789',
         id_devedor: '101',
-        num_contrato: '312731321',
+        num_contrato: '3127171321',
         termo_divida: ' Termo 2',
         data_divida: '2023-09-17',
         montante_valor: 800.25,
@@ -131,7 +132,7 @@ function getDebtsByUser(userCpf){
         id_divida: 3,
         id_credor: '121',
         id_devedor: '131',
-        num_contrato: '312731322',
+        num_contrato: '3124731322',
         termo_divida: 'Termo 3',
         data_divida: '2023-09-17',
         montante_valor: 800.25,
@@ -143,7 +144,7 @@ function getDebtsByUser(userCpf){
         id_divida: 4,
         id_credor: '121',
         id_devedor: '131',
-        num_contrato: '312731322',
+        num_contrato: '3125731322',
         termo_divida: 'Termo 3',
         data_divida: '2023-09-17',
         montante_valor: 800.25,
@@ -189,12 +190,14 @@ function fillDebtsDataTable(userCpf) {
             $(row).click(function (evt) {
                 evt.preventDefault();
                 evt.stopPropagation();
-            });
 
-            // $(row).hover(
-            //     function () { $(this).css('transform', 'scale(1.008)'); },
-            //     function () { $(this).css('transform', 'scale(1)'); }
-            // );
+                $(`#debtCheckbox_${data.num_contrato}`).parent().parent().css('background-color', '#E3F4F4');
+            });
+            
+
+            $(row).hover(
+                function () { $(this).css('cursor', 'pointer'); },
+            );
         },
         columnDefs: [{
             'defaultContent': '-',
@@ -203,3 +206,7 @@ function fillDebtsDataTable(userCpf) {
     });
 }
 
+function checkContract(contractNumber){
+    $(`#debtCheckbox_${contractNumber}`).parent().parent().css('background-color', '#E3F4F4');
+    console.log(`#debtCheckbox_${contractNumber}`)
+}
