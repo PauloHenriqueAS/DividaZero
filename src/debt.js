@@ -111,10 +111,10 @@ function getDebtsByUser(userCpf){
         num_contrato: '3127313921',
         termo_divida: 'Termo 1',
         data_divida: '2023-09-16',
-        montante_valor: 1000.50,
-        montante_atrasado: 250.75,
+        montante_valor: 2500.00,
+        montante_atrasado: 1500.00,
         status: '1',
-        produto: 'ProdutoXYZ'
+        produto: 'Internet'
       },
       {
         id_divida: 2,

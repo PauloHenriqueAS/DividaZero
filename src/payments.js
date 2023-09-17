@@ -73,3 +73,13 @@ function openPaymentTypes()
 {
   window.location.href = 'pagamento.html';
 }
+
+function payDebt(){
+  Swal.fire({
+    icon: "success",
+    title: "Sucesso",
+    text: "Pagamento realizado com sucesso!",
+  }).then(() =>{
+    window.location.href = 'index.html'
+  })
+}
