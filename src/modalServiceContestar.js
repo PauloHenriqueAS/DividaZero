@@ -120,6 +120,11 @@ function openContestModal(){
     $('#contestModal').modal('show');
 }
 
+const handleUploadFileToGarant = () => {
+    closeContestModal()
+    $('#modalSend').modal('show');
+}
+
 function openUploadModal() {
     $('#contestModal').modal('hide');
     $('#modalSend').modal('show');    
@@ -138,5 +143,6 @@ function sendContestTerm(){
         icon: "success",
         title: "Sucesso",
         text: "Termo enviado com sucesso!",
-      }).then(() =>{window.location.reload()})
+      })
+    closeUploadModal()
 }

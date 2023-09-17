@@ -12,6 +12,7 @@
     <link rel="icon" type="image/png" sizes="512x512" href="assets/img/algar512.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="assets/css/Articles-Cards-images.css">
@@ -57,23 +58,65 @@
                         <div class="col"><i class="icon ion-social-usd" style="padding-right: 7px;"></i><label class="form-label" for="email">Montante Atrasado</label><input class="form-control" type="text" id="inputNome-10" disabled value="R$ 1500,00"></div>
                     </div>
                 </div>
+                <div>
+                    <div class="row d-none" style="margin-top: 10px;" id="paymentPortian">
+                        <div class="col-md-6"><i class="icon ion-ios-paper" style="padding-right: 7px;"></i><label class="form-label" for="email">Número de parcelas</label><input class="form-control" type="text" id="inputNome-11"></div>
+                        <div class="col-md-6"><i class="icon ion-cash" style="padding-right: 7px;"></i><label class="form-label" for="email">Valor das Parcelas</label><input class="form-control" type="text" id="inputNome-12"></div>
+                    </div>
+                </div>
                 <div style="margin-top: 10px;" class="col-md-6 mx-auto">
                     <label for="">Método de pagamento</label>
                     <select class="form-select text-center" id="formaPagamento" name="formaPagamento" onchange="selectPaymentMethod()">
                         <option value="cartao">Cartão de Crédito/Débito</option>
                         <option value="pix">PIX</option>
-                        <option value="boleto">Boleto Bancário</option>
+                        <option value="boleto" id="boleto">Boleto Bancário</option>
                     </select>
                 </div>
-                <!-- <div>
-                    <div class="row" style="margin-top: 10px;">
-                        <div class="col-md-6"><i class="icon ion-ios-paper" style="padding-right: 7px;"></i><label class="form-label" for="email">Número de parcelas</label><input class="form-control" type="text" id="inputNome-11"></div>
-                        <div class="col-md-6"><i class="icon ion-cash" style="padding-right: 7px;"></i><label class="form-label" for="email">Valor das Parcelas</label><input class="form-control" type="text" id="inputNome-12"></div>
-                    </div>
-                </div> -->
                 <div class="mb-3"><button class="btn d-block w-100" id="btnLogin" type="button" style="background: #00afac;border-style: none;margin-top: 20px;width: 500px;color: rgb(255,255,255);" onclick="generateRenegotiation()">Gerar Renegociação</button></div>
             </form>
         </div>
+        <div class="modal fade" id="contestModal" tabindex="-1" role="dialog" aria-labelledby="contestModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="contestModalLabel">Tipo de Garantia</h5>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-primary" onclick="handleUploadFileToGarant()">Garantia Pessoal</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="handleUploadFileToGarant()">Garantia Real</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- MODAL UPLOAD  -->
+        <div class="modal fade" id="modalSend" tabindex="-1" role="dialog" aria-labelledby="modalSendLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modalSendLabel">Carregue sua Garantia</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="file-upload-wrapper" id="drop-zone">
+                        <form method="post" id="post-file">
+                            <label for="fileInput" class="label-file">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+                                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                    <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                                </svg> 
+                                <span>Carregue seu arquivo aqui!</span>
+                                <input type="file" id="formFile" class="file-upload"
+                                data-height="500" />
+                            </label>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" onclick="sendContestTerm()" data-target="#modalSend">Enviar</button>
+                </div>
+              </div>
+            </div>
+            </div>
     </section>
     <footer class="bg-primary-gradient" style="background: #1B7E6C;">
         <div class="container py-4 py-lg-5">
@@ -135,6 +178,7 @@
     <script src="./src/renegotiation.js"></script>
     <script src="./src/Extensions/constants.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./src/modalServiceContestar.js"></script>
 
 </body>
 

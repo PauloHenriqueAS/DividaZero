@@ -1,18 +1,11 @@
-// function redirectToRenegotiation(){
-//     window.location.href = 'form_term.html';
-// }
-
-// function generateRenegotiation(){
-//     window.location.href = 'pagamento.html';
-// }
-
-// const getDados = ()=> {
-
-// }
-
-// function redirectToRenegotiation(){
-//     window.location.href = 'form_term.html';
-// }
+const selectPaymentMethod = () => {
+  if(document.getElementById('formaPagamento').options[2].value == document.getElementById('formaPagamento').value){
+    $('#contestModal').modal('show');
+    $('#paymentPortian').removeClass('d-none');
+  }else{
+    $('#paymentPortian').addClass('d-none');
+  }
+} 
 
 async function generateRenegotiation(){
     const body = {
