@@ -214,3 +214,7 @@ function checkContract(contractNumber){
     $(`#debtCheckbox_${contractNumber}`).parent().parent().css('background-color', '#E3F4F4');
     console.log(`#debtCheckbox_${contractNumber}`)
 }
+
+const redirectToRenegotiation = () => {
+    window.location.href = "./form_term.html"
+}

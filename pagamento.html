@@ -35,18 +35,7 @@
         <div class="col-md-8 col-xl-6 text-center mx-auto">
             <h3 class="fw-bold" style="color: #00afac;">Pagamento</h3>
         </div>
-    </div>
-            <div class="mb-3">
-                <label for="formaPagamento" class="form-label">Selecione a Forma de Pagamento:</label>
-                <div class="alert alert-success" id="liberacaoImediata">
-                  O serviço será liberado imediatamente para pagamento com Cartão de Crédito/Débito ou PIX.
-              </div>
-                <select class="form-select" id="formaPagamento" name="formaPagamento" disabled>
-                    <option value="cartao">Cartão de Crédito/Débito</option>
-                    <!-- <option value="pix">PIX</option>
-                    <option value="boleto">Boleto Bancário</option> -->
-                </select>
-            </div>
+    </div>  
            <div class="row">
             <div id="cartaoFields">
               <div class="container-card">
@@ -148,7 +137,7 @@
                 </div>
             </div>
             <div class="d-flex" style="justify-content: center;">
-                <button type="button" class="btn btn-primary" id="pagarBtn" onclick="payDebt()">Pagar</button>
+                <button type="button" class="btn btn-primary" id="pagarBtn" onclick="payDebt()">Finalizar renegociação</button>
             </div>
         </form>
     </div>
@@ -212,6 +201,7 @@
     <script src="assets/js/bold-and-bright.js"></script>
     <script src="service-worker.js"></script>
     <script src="./src/payments.js"></script>
+    <script src="./src/Extensions/constants.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
