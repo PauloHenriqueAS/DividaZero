@@ -1,10 +1,9 @@
 $( document ).ready(function() {
-    console.log( "ready!" );
     validateUserToken();
 });
 
-function openUserCpfModal(){
-
+function verifyDebts(){
+    window.location.href = 'debt.html?token=61c56747b6b25e17f28d62aa3e4bf32b731ef14f062cee7a8106c09767e92017';
 }
 
 function isTokenValid(cpfUser, userToken){
@@ -33,7 +32,7 @@ function getDebtsColumns() {
             'title': ' ',
             'className': 'text-center',
             'render': (data) => {
-                return `  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">`
+                return `<input class="form-check-input" type="checkbox" name="teste" value="1" id="flexCheckDefault">`
             }
         },
         {
@@ -97,7 +96,7 @@ function getDebtsColumns() {
             'title': ' ',
             'className': 'text-center',
             'render': (data) => {
-                return `<i class="fa fa-ellipsis-v" aria-hidden="true" style="font-size: 30px; cursor: pointer;" title="Contestar dívida"></i>`
+                return `<i class="fa fa-ellipsis-v" aria-hidden="true" style="font-size: 30px; cursor: pointer;" title="Contestar dívida" onclick="openContestModal()"></i>`
             }
         }
     ];

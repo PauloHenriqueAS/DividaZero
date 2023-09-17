@@ -110,3 +110,33 @@ const handleRenderModal = () => {
     $('#modalArea').append(htmlModal)
     $('#modalInputArea').append(htmlInput)
 }
+
+$(function () {
+    $('#modal').modal('toggle');
+ });
+
+
+function openContestModal(){
+    $('#contestModal').modal('show');
+}
+
+function openUploadModal() {
+    $('#contestModal').modal('hide');
+    $('#modalSend').modal('show');    
+}
+
+function closeContestModal(){
+    $('#contestModal').modal('hide');
+}
+
+function closeUploadModal() {
+    $('#modalSend').modal('hide');    
+}
+
+function sendContestTerm(){
+    Swal.fire({
+        icon: "success",
+        title: "Sucesso",
+        text: "Termo enviado com sucesso!",
+      }).then(() =>{window.location.reload()})
+}

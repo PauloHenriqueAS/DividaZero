@@ -36,110 +36,12 @@
         <div class="container py-5">
             <div class="row mb-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2 class="fw-bold">Dívidas</h2>
+                    <h2 class="fw-bold">Termos</h2>
                 </div>
             </div>
 
-            <div class="modal fade" id="contestModal" tabindex="-1" role="dialog" aria-labelledby="contestModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="contestModalLabel">Contestamento</h5>
-                    </div>
-                    <div class="modal-body">
-                        <form class="formLogin">
-                            <div class="mb-3">
-                                <div class="row">
-                                    <div class="col-md-6"><i class="icon ion-person" style="padding-right: 7px;"></i><label class="form-label d-flex contest-labels" for="num_contrato">Número do Contrato</label><input disabled class="form-control text-center" type="text" id="num_contrato" value="3213218312"></div>
-                                    <div class="col-md-6"><i class="icon ion-person" style="padding-right: 7px;"></i><label class="form-label d-flex contest-labels" for="montante_atrasado">Montante Atrasado</label><input disabled class="form-control text-center" type="text" id="montante_atrasado" value="R$2500,00"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="row">
-                                    <div class="col-md-6"><i class="icon ion-email" style="padding-right: 7px;"></i><label class="form-label d-flex contest-labels" for="montante_valor">Montante Valor</label><input disabled class="form-control text-center" type="text" id="montante_valor" value="R$2500,00"></div>
-                                    <div class="col-md-6"><i class="icon ion-person" style="padding-right: 7px;"></i><label class="form-label d-flex contest-labels" for="data_divida">Data Dívida</label><input disabled class="form-control text-center" type="text" id="data_divida" value="17/09/2023"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="row">
-                                    <label for="exampleFormControlTextarea1" class="d-flex contest-labels mt-3">Termo de dívida: </label>
-                                    <textarea class="form-control text-center" id="exampleFormControlTextarea1" rows="3" disabled>
-                                        Eu, João da Silva, CPF 123.456.789-00, residente na Rua das Flores, nº 123, doravante denominado "Devedor", reconheço e declaro que devo a quantia de R$ 5.000,00 (Cinco mil reais), doravante denominada "Dívida", ao Sr./Sra. Maria Oliveira, CPF 987.654.321-00, residente na Avenida Principal, nº 456, doravante denominado "Credor".
-                                        
-                                        1. Valor da Dívida:
-                                           A Dívida totaliza a quantia de R$ 5.000,00 (Cinco mil reais).
-                                        
-                                        2. Data de Vencimento:
-                                           A Dívida vencerá em 30 de setembro de 2023, que é a data em que o Devedor concorda em pagar o valor integral ao Credor.
-                                        
-                                        3. Termos de Pagamento:
-                                           O Devedor concorda em efetuar o pagamento integral da Dívida até a Data de Vencimento especificada acima.
-                                        
-                                        4. Juros e Penalidades:
-                                           Caso a Dívida não seja paga até a Data de Vencimento, o Devedor concorda em pagar juros de 1% por dia de atraso. Além disso, o Devedor concorda em arcar com quaisquer custos legais ou despesas razoáveis incorridas pelo Credor para recuperar a Dívida, incluindo honorários advocatícios.
-                                        
-                                        5. Pagamento:
-                                           O Devedor se compromete a efetuar o pagamento da Dívida por meio de transferência bancária para a conta do Credor no Banco ABC, utilizando os seguintes dados bancários do Credor: 
-                                           - Banco: Banco ABC
-                                           - Agência: 1234
-                                           - Conta Corrente: 56789-0
-                                        
-                                        6. Confirmação do Devedor:
-                                           O Devedor confirma que recebeu o valor descrito nesta Dívida e reconhece sua obrigação de pagá-lo nas condições estabelecidas neste Termo de Dívida.
-                                        
-                                        Este Termo de Dívida é firmado de livre e espontânea vontade das partes e entra em vigor a partir da data de assinatura.
-                                        
-                                        ____________________________       ____________________________
-                                        Assinatura do Devedor                          Assinatura do Credor
-                                        Nome: João da Silva                               Nome: Maria Oliveira
-                                        Data: 15 de setembro de 2023              Data: 15 de setembro de 2023
-                                        </textarea>
-                                </div>
-                            </div> 
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" onclick="openUploadModal()">Contestar</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeContestModal()">Fechar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            <!-- MODAL UPLOAD  -->
-            <div class="modal fade" id="modalSend" tabindex="-1" role="dialog" aria-labelledby="modalSendLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="modalSendLabel">Carregue o Termo</h5>
-                    </div>
-                    <div class="modal-body">
-                        <div class="file-upload-wrapper" id="drop-zone">
-                            <form method="post" id="post-file">
-                                <label for="fileInput" class="label-file">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
-                                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                                        <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
-                                    </svg> 
-                                    <span>Carregue seu arquivo aqui!</span>
-                                    <input type="file" id="formFile" class="file-upload"
-                                    data-height="500" />
-                                </label>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" onclick="sendContestTerm()" data-target="#modalSend">Enviar</button>
-                    </div>
-                  </div>
-                </div>
-                </div>
-
             <div style="background-color: #f8f9fa; border-radius: 10px !important; padding: 30px !important;">                
-                <table id="debtsDataTable" class="row-border rounded" style="border-radius: 0px !important; width: 100% !important; margin: 0px; "></table>
-                <div class="d-flex" style="justify-content: center;">
-                    <button class="btn btn-primary shadow" type="button" onclick="renegociateDebts()" >Renegociar</button>
-                </div>
+                <table id="termsDataTable" class="row-border rounded" style="border-radius: 0px !important; width: 100% !important; margin: 0px; "></table>
             </div>
         </div>
     </section>
@@ -203,7 +105,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
     <script src="./src/modalServiceContestar.js"></script>
-    <script src="./src/debt.js"></script>
+    <script src="./src/term.js"></script>
 </body>
 
 </html>
