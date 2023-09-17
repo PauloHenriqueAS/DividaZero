@@ -6,6 +6,10 @@ function verifyDebts(){
     window.location.href = 'debt.html?token=61c56747b6b25e17f28d62aa3e4bf32b731ef14f062cee7a8106c09767e92017';
 }
 
+function renegociateDebts(){
+    window.location.href = "form_term.html"
+}
+
 function isTokenValid(cpfUser, userToken){
     // TODO - consumir api e verificar
 
