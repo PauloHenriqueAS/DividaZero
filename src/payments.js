@@ -74,10 +74,19 @@ function openPaymentTypes()
   window.location.href = 'pagamento.html';
 }
 
+function getRandomNumberBetween(min, max) {
+  if (min >= max) {
+    throw new Error("Invalid range: min must be less than max");
+  }
+  const randomNumber = Math.random();
+  const scaledNumber = randomNumber * (max - min) + min;
+  return Math.floor(scaledNumber);
+}
+
 async function payDebt(){
    const body = {
       "termo": {
-        "id_termo": 50,
+        "id_termo": getRandomNumberBetween(70,80),
         "id_divida": 1,
         "num_parcela": 1,
         "data_renegociacao": "2023-09-17"
